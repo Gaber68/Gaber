@@ -1,0 +1,146 @@
+/* ======================================
+   GLOBAL STYLES
+====================================== */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    background: url("Slike/ozadje.jpg") center/cover no-repeat;
+}
+
+/* ======================================
+   NAVIGATION BAR
+====================================== */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 450px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #e0e0e0;
+}
+
+nav span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+nav a:nth-child(1):hover ~ span { left: 0; width: 25%; }
+nav a:nth-child(2):hover ~ span { left: 25%; width: 25%; }
+nav a:nth-child(3):hover ~ span { left: 50%; width: 25%; }
+nav a:nth-child(4):hover ~ span { left: 75%; width: 25%; }
+
+/* Active link highlight */
+nav a.active ~ span {
+    left: 25%;
+    width: 25%;
+}
+
+/* ======================================
+   CONTACT SECTION
+====================================== */
+.contact-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.contact-box {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 2rem 3rem;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    top: -15vh;
+}
+
+.contact-box h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contact-box p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.contact-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.contact-box li {
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+@media (max-width: 768px) {
+    nav {
+        width: 95%;
+    }
+
+    .contact-box {
+        padding: 1.5rem 1rem;
+        width: 90%;
+    }
+}

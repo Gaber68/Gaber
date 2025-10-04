@@ -1,0 +1,170 @@
+/* ======================================
+   GLOBAL STYLES
+====================================== */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* ======================================
+   NAVIGATION
+====================================== */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 450px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #e0e0e0;
+}
+
+nav span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+nav a:nth-child(1):hover ~ span { left: 0; width: 25%; }
+nav a:nth-child(2):hover ~ span { left: 25%; width: 25%; }
+nav a:nth-child(3):hover ~ span { left: 50%; width: 25%; }
+nav a:nth-child(4):hover ~ span { left: 75%; width: 25%; }
+
+/* ======================================
+====================================== */
+.profilna {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background: url("Slike/ozadje.jpg") center/cover no-repeat;
+    position: relative;
+    padding: 2rem;
+}
+
+/* optional overlay for readability */
+.profilna::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 0;
+}
+
+.profile-container {
+    position: relative;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    top: -15vh;
+    left: -50vh;
+}
+
+.profile-besedilo {
+    position: relative;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    top: -15vh;
+    left: -20vh;
+
+}
+
+/* Profile image */
+.slika_profil {
+    width: clamp(350px, 30vw, 250px);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.slika_profil:hover {
+    transform: scale(1.05);
+}
+
+/* Name */
+.ime_zacetek {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Typewriter Text */
+#typewriter {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    color: #fff;
+    border-right: 2px solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* ======================================
+   RESPONSIVE TWEAKS
+====================================== */
+@media (max-width: 768px) {
+    nav {
+        width: 95%;
+        max-width: none;
+    }
+
+    .profilna {
+        padding: 3rem 1rem;
+    }
+
+    .slika_profil {
+        width: 180px;
+    }
+}
